@@ -1,19 +1,40 @@
 {
-  "name": "GAMquestApp",
+  "name": "nodejs-express-sequelize-mysql",
   "version": "1.0.0",
-  "description": "QuestionarioGAM",
-  "main": "app.js",
-  "repository": "https://github.com/joaoalex/gamquest",
-  "author": "team",
-  "license": "MIT",
-  "private": false,
+  "description": "Node.js Rest Apis with Express, Sequelize & MySQL",
+  "main": "server.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
-  "dependencies": {
-    "express": "^4.16.3"
   },
-  "engines": {
-    "node": ">=14"
+  "keywords": [
+    "nodejs",
+    "express",
+    "rest",
+    "api",
+    "sequelize",
+    "mysql"
+  ],
+  "author": "abc",
+  "license": "abc",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "global-tunnel-ng": "^2.7.1",
+    "http": "^0.0.1-security",
+    "httpntlm": "^1.7.7",
+    "https": "^1.0.0",
+    "https-proxy-agent": "^5.0.1",
+    "mysql2": "^2.0.2",
+    "node-client-ntlm": "^0.0.5",
+    "node-fetch": "^2.6.7",
+    "proxying-agent": "^2.4.0",
+    "request": "^2.88.2",
+    "sequelize": "^6.25.1"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.5.1"
   }
 }
