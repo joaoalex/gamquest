@@ -1,7 +1,7 @@
 module.exports = {
   HOST: "dpg-cddfeqirrk07n4up7hj0-a",
   USER: "agile",
-  PASSWORD: "",
+  PASSWORD: "tmtSQR1ZcnbXI7PC7OLJbvbcN3msXNtC",
   DB: "questionario",
   dialect: "postgres",
   port: '5432', //optional
