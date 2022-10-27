@@ -1,9 +1,10 @@
 module.exports = {
-  HOST: "localhost",
+  HOST: "dpg-cddfeqirrk07n4up7hj0-a",
   USER: "agile",
-  PASSWORD: "agile",
-  DB: "agilequest",
-  dialect: "mysql",
+  PASSWORD: "",
+  DB: "questionario",
+  dialect: "postgres",
+  port: '5432', //optional
   pool: {
     max: 5,
     min: 0,

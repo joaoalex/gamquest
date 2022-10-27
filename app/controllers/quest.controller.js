@@ -1,15 +1,9 @@
-//const { google } = require("googleapis");
 bodyParser = require('body-parser');
-var http = require("http");
-//const { Json } = require("sequelize/types/utils");
-const proxy="localhost";
-const proxyport=8888;
 
 const db = require("../models");
-//const questionarioModel = require("../models/questionario.model");
 
-const fetch = (...args) =>
-  import('node-fetch').then(({ default: fetch }) => fetch(...args));
+//const fetch = (...args) =>
+//  import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 const Quest = db.quests;
 const Questionario = db.questionario;
@@ -17,29 +11,6 @@ const Vetores = db.vetores;
 const Respostas = db.respostas;
 
 const Op = db.Sequelize.Op;
-
-
-// update
-exports.updatesheets = (req, res) => {
-console.log("updatesheets");
-
-    console.log('setting up proxy to call google');
-    var options = {
-      host: proxy,
-      port: proxyport,
-      path: "https://script.google.com/macros/s/AKfycbz3NrHTF_5sJuOJwhFpQG7bQbgufJlPAecmNgthEdZ8O88Akn-D/exec?rate=2&phone=962034069&email=joao.alexandre@cgd.pt",
-      headers: {
-        Host: "script.google.com"
-      }
-    };
-    console.log('calling google');
-    http.get(options, function(res) {
-      console.log(res);
-      res.pipe(process.stdout);
-    });
-  
- }
-
  
 exports.getusers = async (req, res) => {
   const { sheets } = await  authSheets();
@@ -245,36 +216,5 @@ exports.create = (req, res) => {
       });
     });
     
-};
-
-// Delete all from the database.
-exports.deleteAll = (req, res) => {
-  Quest.destroy({
-    where: {},
-    truncate: false
-  })
-    .then(nums => {
-      res.send({ message: `${nums} records were deleted successfully!` });
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while removing all."
-      });
-    });
-};
-
-// find all published
-exports.findAllPublished = (req, res) => {
-  Quest.findAll({ where: { published: true } })
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving records."
-      });
-    });
 };
 
