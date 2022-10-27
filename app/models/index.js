@@ -15,7 +15,7 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   }
 });
 */
-const sequelize = new Sequelize('postgres://agile:tmtSQR1ZcnbXI7PC7OLJbvbcN3msXNtC@dpg-cddfeqirrk07n4up7hj0-a.oregon-postgres.render.com:5432/questionario', {
+const sequelize = new Sequelize('postgres://agile:tmtSQR1ZcnbXI7PC7OLJbvbcN3msXNtC@dpg-cddfeqirrk07n4up7hj0-a.oregon-postgres.render.com:5432/questionario?ssl=true', {
      dialectModule: pg
 });
 
