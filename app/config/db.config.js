@@ -1,10 +1,10 @@
 module.exports = {
-  HOST: "dpg-cddfeqirrk07n4up7hj0-a",
+  HOST: "localhost",
   USER: "agile",
-  PASSWORD: "tmtSQR1ZcnbXI7PC7OLJbvbcN3msXNtC",
-  DB: "questionario",
-  dialect: "postgres",
-  port: '5432', //optional
+  PASSWORD: "agile",
+  DB: "agilequest",
+  dialect: "mysql",
+  port: '3306', //optional
   pool: {
     max: 5,
     min: 0,
@@ -12,10 +12,3 @@ module.exports = {
     idle: 10000
   }
 };
-
-//import * as pg from 'pg';
-//import { Sequelize } from 'sequelize';
-
-//const sequelize = new Sequelize('postgres://admin:admin@localhost:5432/mydb', {
-//  dialectModule: pg
-//});

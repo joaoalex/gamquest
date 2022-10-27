@@ -1,9 +1,15 @@
+
 bodyParser = require('body-parser');
+var http = require("http");
+//const { Json } = require("sequelize/types/utils");
+const proxy="localhost";
+const proxyport=8888;
 
 const db = require("../models");
+//const questionarioModel = require("../models/questionario.model");
 
-//const fetch = (...args) =>
-//  import('node-fetch').then(({ default: fetch }) => fetch(...args));
+const fetch = (...args) =>
+  import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 const Quest = db.quests;
 const Questionario = db.questionario;
@@ -216,5 +222,36 @@ exports.create = (req, res) => {
       });
     });
     
+};
+
+// Delete all from the database.
+exports.deleteAll = (req, res) => {
+  Quest.destroy({
+    where: {},
+    truncate: false
+  })
+    .then(nums => {
+      res.send({ message: `${nums} records were deleted successfully!` });
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while removing all."
+      });
+    });
+};
+
+// find all published
+exports.findAllPublished = (req, res) => {
+  Quest.findAll({ where: { published: true } })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving records."
+      });
+    });
 };
 

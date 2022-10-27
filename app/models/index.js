@@ -1,5 +1,6 @@
 const dbConfig = require("../config/db.config.js");
 const { Sequelize, Op } = require("sequelize");
+const { pg } = require("pg");
 /*
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
@@ -14,13 +15,14 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   }
 });
 */
-import * as pg from 'pg';
-import { Sequelize } from 'sequelize';
-
-const sequelize = new Sequelize('postgres://agile:tmtSQR1ZcnbXI7PC7OLJbvbcN3msXNtC@pg-cddfeqirrk07n4up7hj0-a:5432/mydb', {
-  dialectModule: pg
+const sequelize = new Sequelize('postgres://agile:tmtSQR1ZcnbXI7PC7OLJbvbcN3msXNtC@dpg-cddfeqirrk07n4up7hj0-a.oregon-postgres.render.com:5432/questionario', {
+     dialectModule: pg
 });
 
+
+//PGPASSWORD=tmtSQR1ZcnbXI7PC7OLJbvbcN3msXNtC psql -h dpg-cddfeqirrk07n4up7hj0-a.oregon-postgres.render.com -U agile questionario
+
+//const sequelize = new Sequelize('postgres://agile:tmtSQR1ZcnbXI7PC7OLJbvbcN3msXNtC@pg-cddfeqirrk07n4up7hj0-a:5432/mydb', {
 const db = {};
 
 db.Sequelize = sequelize;
