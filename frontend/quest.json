@@ -1,0 +1,221 @@
+{
+  "locale": "pt",
+  "title": "Maturidade",
+  "logoPosition": "right",
+  "pages": [
+   {
+    "name": "page1",
+    "elements": [
+     {
+      "type": "radiogroup",
+      "name": "question1",
+      "title": "Visão e  Missão/Objetivos Curto Prazo",
+      "isRequired": true,
+      "choices": [
+       {
+        "value": "0",
+        "text": "0: não  há, ou não conheço visão/missão/objectivos definidos "
+       },
+       {
+        "value": "1",
+        "text": "1: há  visão/missão/objectivos definidos mas o trabalho da equipa está pouco ou nada  alinhado com os mesmos "
+       },
+       {
+        "value": "2",
+        "text": "2: O  trabalho da equipa está parcialmente alinhado com com a v/m/o"
+       },
+       {
+        "value": "3",
+        "text": "3: O  trabalho da equipa está alinhado com a v/m/o"
+       },
+       {
+        "value": "4",
+        "text": {
+         "pt": "4 - ffg"
+        }
+       }
+      ]
+     },
+     {
+      "type": "radiogroup",
+      "name": "Vetor1_sub2",
+      "visibleIf": "{question1} = 1",
+      "title": "Backlog",
+      "isRequired": true,
+      "choices": [
+       {
+        "value": "item1",
+        "text": {
+         "pt": "1"
+        }
+       },
+       {
+        "value": "item2",
+        "text": {
+         "pt": "2"
+        }
+       },
+       {
+        "value": "item3",
+        "text": {
+         "pt": "3"
+        }
+       },
+       {
+        "value": "item4",
+        "text": {
+         "pt": "4"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "page2",
+    "elements": [
+     {
+      "type": "radiogroup",
+      "name": "\\",
+      "title": "  Competências  ",
+      "isRequired": true,
+      "choices": [
+       {
+        "value": "0",
+        "text": "0 - a equipa não tem os conhecimentos nem a experiência suficientes para entregar** com autonomia  "
+       },
+       {
+        "value": "1",
+        "text": "1 - a equipa tem o conhecimento necessário mas não tem experiência suficiente para entregar** com autonomia"
+       },
+       {
+        "value": "2",
+        "text": "2 - a equipa tem o conhecimento e experiência necessários mas não consegue entregar** com autonomia "
+       },
+       {
+        "value": "3",
+        "text": "3 - a equipa tem o conhecimento e experiência necessários e entrega** com autonomia"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "page3",
+    "elements": [
+     {
+      "type": "radiogroup",
+      "name": "question4",
+      "title": "condições  de conforto/hw/sw ",
+      "choices": [
+       {
+        "value": "0",
+        "text": "0 - a equipa não tem os conhecimentos nem a experiência suficientes para entregar** com autonomia  "
+       },
+       {
+        "value": "1",
+        "text": "1 - a equipa tem o conhecimento necessário mas não tem experiência suficiente para entregar** com autonomia"
+       },
+       {
+        "value": "2",
+        "text": "2 - a  equipa tem o conhecimento e experiência necessários mas não consegue  entregar** com autonomia "
+       },
+       {
+        "value": "3",
+        "text": "3 - a  equipa tem o conhecimento e experiência necessários e entrega** com autonomia"
+       }
+      ]
+     },
+     {
+      "type": "rating",
+      "name": "question5",
+      "title": "Entregas"
+     }
+    ]
+   },
+   {
+    "name": "page4",
+    "elements": [
+     {
+      "type": "rating",
+      "name": "question6",
+      "title": "Métricas"
+     }
+    ]
+   },
+   {
+    "name": "page5",
+    "elements": [
+     {
+      "type": "radiogroup",
+      "name": "question7",
+      "title": "Avaliação  (feedback) de Stakeholders",
+      "isRequired": true,
+      "choices": [
+       {
+        "value": "0",
+        "text": "0 - Não  recolhemos feedback dos stakeholders"
+       },
+       {
+        "value": "1",
+        "text": "1 -  Recolhemos feedback dos stakeholders de forma ad-hoc"
+       },
+       {
+        "value": "2",
+        "text": "2 -  Recolhemos e incorporamos feedback dos stakeholders mas de forma ad-hoc"
+       },
+       {
+        "value": "3",
+        "text": "3 -  Recolhemos continuamente e incorporamos o feedback dos stakeholders"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "page6",
+    "elements": [
+     {
+      "type": "matrix",
+      "name": "Dependências || Autonomia",
+      "title": "Dependências  || Autonomia",
+      "isRequired": true,
+      "columns": [
+       {
+        "value": "0",
+        "text": "0 -  totalmente dependente"
+       },
+       {
+        "value": "1",
+        "text": "1 - alguma autonomia"
+       },
+       {
+        "value": "2",
+        "text": "2 - autonomia"
+       },
+       {
+        "value": "3",
+        "text": "3 - automatizado"
+       }
+      ],
+      "rows": [
+       "Dev",
+       {
+        "value": "TI",
+        "text": "TI "
+       },
+       "CQ",
+       "Prd"
+      ]
+     }
+    ]
+   }
+  ],
+  "calculatedValues": [
+   {
+    "name": "var1"
+   }
+  ],
+  "cookieName": "vetor",
+  "widthMode": "responsive"
+ }
