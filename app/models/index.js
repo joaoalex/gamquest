@@ -1,6 +1,6 @@
 const dbConfig = require("../config/db.config.js");
 const { Sequelize, Op } = require("sequelize");
-
+/*
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
@@ -12,6 +12,13 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     acquire: dbConfig.pool.acquire,
     idle: dbConfig.pool.idle
   }
+});
+*/
+import * as pg from 'pg';
+import { Sequelize } from 'sequelize';
+
+const sequelize = new Sequelize('postgres://agile:tmtSQR1ZcnbXI7PC7OLJbvbcN3msXNtC@pg-cddfeqirrk07n4up7hj0-a:5432/mydb', {
+  dialectModule: pg
 });
 
 const db = {};
