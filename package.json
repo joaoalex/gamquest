@@ -1,22 +1,19 @@
 {
-  "name": "nodejs-express-sequelize-mysql",
+  "name": "express-hello-world",
   "version": "1.0.0",
-  "description": "Node.js Rest Apis with Express, Sequelize & MySQL",
-  "main": "server.js",
+  "description": "Express Hello World on Render",
+  "main": "app.js",
+  "repository": "https://github.com/render-examples/express-hello-world",
+  "author": "Render Developers",
+  "license": "MIT",
+  "private": false,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
-  "keywords": [
-    "nodejs",
-    "express",
-    "rest",
-    "api",
-    "sequelize",
-    "mysql"
-  ],
-  "author": "abc",
-  "license": "abc",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.16.3"
+  },
+  "engines": {
+    "node": ">=14"
   }
 }
