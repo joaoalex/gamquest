@@ -1,7 +1,7 @@
 {
-  "name": "GAM quest App",
+  "name": "GAMquestApp",
   "version": "1.0.0",
-  "description": "Questionario GAM",
+  "description": "QuestionarioGAM",
   "main": "app.js",
   "repository": "https://github.com/joaoalex/gamquest",
   "author": "team",
