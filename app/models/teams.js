@@ -1,15 +1,15 @@
 module.exports = (sequelize, DataTypes) => {
-  const Quest = sequelize.define("quest", {
+  const Teams = sequelize.define("teams", {
     name: {
       type: DataTypes.STRING
     },
     description: {
       type: DataTypes.STRING
     },
-    type: {
+    metodologia: {
       type: DataTypes.STRING
     },
-    published: {
+    ativo: {
       type: DataTypes.BOOLEAN
     },
     questjson: {
@@ -17,6 +17,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
 
-  return Quest;
+  return Teams;
  
 };

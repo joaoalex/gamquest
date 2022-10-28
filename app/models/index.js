@@ -41,10 +41,12 @@ sequelize.sync()
   });
 
 
-db.quests = require("./quest.js")(sequelize, Sequelize);
+db.teams = require("./teams.js")(sequelize, Sequelize);
 db.questionario = require("./questionario.js")(sequelize, Sequelize);
 db.vetores = require("./vetores.js")(sequelize, Sequelize);
 db.respostas = require("./respostas.js")(sequelize, Sequelize);
+db.roles = require("./roles.js")(sequelize, Sequelize);
+
 
 module.exports = db;
 

@@ -1,9 +1,9 @@
 
 bodyParser = require('body-parser');
-var http = require("http");
+//var http = require("http");
 //const { Json } = require("sequelize/types/utils");
-const proxy="localhost";
-const proxyport=8888;
+//const proxy="localhost";
+//const proxyport=8888;
 
 const db = require("../models");
 //const questionarioModel = require("../models/questionario.model");
@@ -11,10 +11,11 @@ const db = require("../models");
 const fetch = (...args) =>
   import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
-const Quest = db.quests;
+const Teams = db.teams;
 const Questionario = db.questionario;
 const Vetores = db.vetores;
 const Respostas = db.respostas;
+const Roles = db.roles;
 
 const Op = db.Sequelize.Op;
  
@@ -35,7 +36,7 @@ exports.findAll = (req, res) => {
   const title = req.query.title;
   var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
 
-  Quest.findAll({ where: condition })
+  Teams.findAll({ where: condition })
     .then(data => {
       res.send(data);
     })
@@ -73,7 +74,6 @@ exports.findVetoresByteam = (req, res) => {
     });
 };
 
-
 exports.findRespostasByteam = (req, res) => {
   const team = req.params.team;
 
@@ -108,7 +108,7 @@ exports.findRespostasByteam = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Quest.findByPk(id)
+  Teams.findByPk(id)
     .then(data => {
       if (data) {
         res.send(data);
@@ -125,11 +125,32 @@ exports.findOne = (req, res) => {
     });
 };
 
+// Find Role by team id
+exports.findRolesByteam = (req, res) => {
+  const id = req.params.id;
+
+  Roles.findAll({ where: { team: id } })
+    .then(data => {
+      if (data) {
+        res.send(data);
+      } else {
+        res.status(404).send({
+          message: `Cannot find records with team=${id}.`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error retrieving records with team=" + id
+      });
+    });
+};
+
 // Find with an name
 exports.findOneByname = (req, res) => {
   const id = req.params.name;
 
-  Quest.findOne({ where: { name: id } })
+  Teams.findOne({ where: { name: id } })
     .then(data => {
       if (data) {
         res.send(data);
@@ -150,7 +171,7 @@ exports.findOneByname = (req, res) => {
 exports.update = (req, res) => {
   const id = req.params.id;
 
-  Quest.update(req.body, {
+  Teams.update(req.body, {
     where: { id: id }
   })
     .then(num => {
@@ -175,7 +196,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Quest.destroy({
+  Teams.destroy({
     where: { id: id }
   })
     .then(num => {
@@ -196,7 +217,6 @@ exports.delete = (req, res) => {
     });
 };
 
-
 // insert into the database.
 exports.create = (req, res) => {
  console.log(req.body);
@@ -207,7 +227,6 @@ exports.create = (req, res) => {
  
  console.log(team);
  console.log(questionario);
- 
  
  Questionario.create({
     equipa: team, pergunta: JSON.stringify(questionario), resposta: ""
@@ -225,8 +244,9 @@ exports.create = (req, res) => {
 };
 
 // Delete all from the database.
+/*
 exports.deleteAll = (req, res) => {
-  Quest.destroy({
+  Teams.destroy({
     where: {},
     truncate: false
   })
@@ -240,10 +260,11 @@ exports.deleteAll = (req, res) => {
       });
     });
 };
+*/
 
 // find all published
-exports.findAllPublished = (req, res) => {
-  Quest.findAll({ where: { published: true } })
+exports.findAllActive = (req, res) => {
+  Teams.findAll({ where: { ativo: true } })
     .then(data => {
       res.send(data);
     })

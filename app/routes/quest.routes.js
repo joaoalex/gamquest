@@ -13,16 +13,19 @@ module.exports = app => {
     res.sendFile(path.join(__dirname, 'dist/angular-starter', 'index.html'));
   });
   // Retrieve all 
-  router.get("/quests", quests.findAll );
+  router.get("/teams", quests.findAll );
 
   // Retrieve all users 
   router.get("/users", quests.getusers );
 
-  // Retrieve all published 
-  router.get("/published", quests.findAllPublished);
+  // Retrieve all active teams 
+  router.get("/teams/active", quests.findAllActive);
 
   // Retrieve a single  with id
-  router.get("/:id", quests.findOne);
+  router.get("/teams/:id", quests.findOne);
+
+   // Retrieve all Roles 
+   router.get("/Roles/:id", quests.findRolesByteam);
  
   // Retrieve vetores 
   router.get("/vetores/:team", quests.findVetoresByteam);
@@ -39,7 +42,8 @@ module.exports = app => {
   router.delete("/:id", quests.delete);
 
   // Delete all
-  router.delete("/", quests.deleteAll);
-
+  //router.delete("/", quests.deleteAll);
+  
   app.use('/api', router);
 };
+
