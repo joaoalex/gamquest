@@ -25,11 +25,11 @@ module.exports = app => {
   router.get("/teams/:id", quests.findOne);
 
    // Retrieve all Roles 
-   router.get("/Roles/:id", quests.findRolesByteam);
+   router.get("/roles/:id", quests.findRolesByteam);
  
   // Retrieve vetores 
   router.get("/vetores/:team", quests.findVetoresByteam);
-
+  // Retrieve respostas
   router.get("/respostas/:team", quests.findRespostasByteam);
 
   // Retrieve
